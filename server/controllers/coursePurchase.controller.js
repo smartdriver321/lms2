@@ -39,8 +39,14 @@ export const createCheckoutSession = async (req, res) => {
 				},
 			],
 			mode: 'payment',
-			success_url: `http://localhost:5173/${courseId}`, // once payment successful redirect to course progress page
-			cancel_url: `http://localhost:5173/${courseId}`,
+			success_url:
+				import.meta.env.MODE === 'development'
+					? 'http://localhost:5173/${courseId}'
+					: 'https://lms2-7kaq.onrender.com/${courseId}', // once payment successful redirect to course progress page
+			cancel_url:
+				import.meta.env.MODE === 'development'
+					? 'http://localhost:5173/${courseId}'
+					: 'https://lms2-7kaq.onrender.com/${courseId}',
 			metadata: {
 				courseId: courseId,
 				userId: userId,

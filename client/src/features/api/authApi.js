@@ -4,7 +4,7 @@ import { userLoggedIn, userLoggedOut } from '../authSlice'
 const USER_API =
 	import.meta.env.MODE === 'development'
 		? 'http://localhost:8080/api/v1/user'
-		: '/api'
+		: 'https://lms2-7kaq.onrender.com/api/v1/user'
 
 export const authApi = createApi({
 	reducerPath: 'authApi',

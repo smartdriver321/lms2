@@ -24,7 +24,7 @@ import { toast } from 'sonner'
 const MEDIA_API =
 	import.meta.env.MODE === 'development'
 		? 'http://localhost:8080/api/v1/media'
-		: '/api'
+		: 'https://lms2-7kaq.onrender.com/api/v1/media'
 
 const LectureTab = () => {
 	const [lectureTitle, setLectureTitle] = useState('')

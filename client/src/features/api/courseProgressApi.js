@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 const COURSE_PROGRESS_API =
 	import.meta.env.MODE === 'development'
 		? 'http://localhost:8080/api/v1/progress'
-		: '/api'
+		: 'https://lms2-7kaq.onrender.com/api/v1/progress'
 
 export const courseProgressApi = createApi({
 	reducerPath: 'courseProgressApi',

@@ -6,6 +6,8 @@ import { User } from '../models/user.model.js'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
+baseUrl = import.meta.env.MODE === 'development' ? DEV_URL : APP_URL
+
 export const createCheckoutSession = async (req, res) => {
 	try {
 		const userId = req.id
@@ -39,8 +41,8 @@ export const createCheckoutSession = async (req, res) => {
 				},
 			],
 			mode: 'payment',
-			success_url: `http://localhost:5173/course-progress/${courseId}`, // once payment successful redirect to course progress page
-			cancel_url: `http://localhost:5173/course-detail/${courseId}`,
+			success_url: `${baseUrl}/${courseId}`, // once payment successful redirect to course progress page
+			cancel_url: `${baseUrl}/${courseId}`,
 			metadata: {
 				courseId: courseId,
 				userId: userId,
